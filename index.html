@@ -1,0 +1,88 @@
+<html>
+<head>
+
+<title>Neighborhood Map</title>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-debug.js'></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body data-spy="scroll" data-target="#id1" data-offset="50">
+  <div class='container'>
+    <div class=row>
+      <div class='col-md-4' id='#id1'  >
+<h3> Neighborhood Map</h3>
+<div class='form-group' >
+<input type='text'class='form-control' data-bind='value:food' placeholder='food'/>
+<br>
+<input type='text' class='form-control' data-bind='value:place' placeholder='place'/>
+<br>
+<button data-bind="click:search" class="btn btn-primary form-control" >search</button>
+</div>
+<mark>
+<span class='list-group '  data-bind="foreach: location">
+  <div  class="list-group-item"   data-bind="text: $data.name,click:$parent.jump"></div>
+</span>
+</mark>
+<span data-bind='text:error'></span>
+</div>
+<div class='col-md-8'>
+</br>
+</br>
+</br></br>
+</br>
+</br></br>
+</br>
+</br>
+<div id='map-container'>
+  <br>
+  <br>
+  <br>
+<div id="map" style="width:100%;height:500px"></div>
+</div>
+</div>
+</div>
+</div>
+<style>
+
+html, body {
+    height:100%;
+}
+
+#map-container {
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 10%;
+
+    z-index: 0;
+}
+
+#map
+{
+    width: 100%;
+    height: 100%;
+}
+#content
+{
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+    top:0;
+    left:0;
+    border: 4px solid black;
+    background:#fff;
+    padding:20px;
+}
+
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+<script src='app.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+
+</body>
+</html>
